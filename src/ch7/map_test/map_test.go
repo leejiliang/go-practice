@@ -35,3 +35,12 @@ func TestMapWithFunc(t *testing.T) {
 	t.Log(map2[1](2), map2[2](2), map2[3](2))
 
 }
+
+func TestMapForSet(t *testing.T) {
+	map3 := map[int]bool{1: true, 2: true}
+	if map3[3] {
+		t.Log("exists 3")
+	} else {
+		t.Log("not exists 3")
+	}
+}
