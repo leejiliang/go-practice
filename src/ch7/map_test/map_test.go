@@ -25,3 +25,13 @@ func TestMapExistsKey(t *testing.T) {
 		t.Logf("key:%s not exists:%t", v, ok)
 	}
 }
+
+func TestMapWithFunc(t *testing.T) {
+	map2 := map[int]func(int) int{}
+	map2[1] = func(i int) int { return i }
+	map2[2] = func(i int) int { return i * i }
+	map2[3] = func(i int) int { return i * i * i }
+
+	t.Log(map2[1](2), map2[2](2), map2[3](2))
+
+}
