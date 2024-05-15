@@ -55,3 +55,13 @@ func Sum(ops ...int) int {
 	}
 	return ret
 }
+
+func Clear() {
+	fmt.Println("Clear resource")
+}
+
+func TestDefer(t *testing.T) {
+	defer Clear() //类似于java中的finally快, 一定会执行.
+	t.Log("Start")
+	panic("System error") // 抛出异常
+}
