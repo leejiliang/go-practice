@@ -22,7 +22,10 @@ func TestFn(t *testing.T) {
 	// 构造带计时功能的函数
 	tsFG := timeSpent(slowFunc)
 	// 执行带计时功能的函数
-	t.Log(tsFG(10))
+	t.Log(tsFG(110))
+
+	t.Log(Sum(1, 2, 3, 4))
+	t.Log(Sum(1, 2, 3, 4, 5, 6))
 }
 
 /*
@@ -43,4 +46,12 @@ func timeSpent(inner1 func(op int) int) func(op int) int {
 func slowFunc(op int) int {
 	time.Sleep(time.Second * 1)
 	return op
+}
+
+func Sum(ops ...int) int {
+	ret := 0
+	for _, i := range ops {
+		ret += i
+	}
+	return ret
 }
